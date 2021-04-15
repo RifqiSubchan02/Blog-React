@@ -1,0 +1,17 @@
+div {
+  .cover {
+    position: absolute;
+    width: 100vw;
+    max-height: 100vh;
+    z-index: -10;
+  }
+  .form {
+    h1 {
+      padding-bottom: 5vh;
+    }
+    align-items: center;
+    margin: auto;
+    padding-top: 20vh;
+    width: 50%;
+  }
+}
