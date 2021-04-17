@@ -1,17 +1,21 @@
-div {
-  .cover {
-    position: absolute;
-    width: 100vw;
-    max-height: 100vh;
-    z-index: -10;
-  }
-  .form {
-    h1 {
-      padding-bottom: 5vh;
+body {
+  div {
+    .cover {
+      position: absolute;
+      width: 100vw;
+      max-height: 100vh;
+      z-index: -1;
     }
-    align-items: center;
-    margin: auto;
-    padding-top: 20vh;
-    width: 50%;
+    .container {
+      padding-top: 20vh;
+      .form {
+        align-items: center;
+        margin: auto;
+        width: 50%;
+        h1 {
+          padding-bottom: 5vh;
+        }
+      }
+    }
   }
 }
