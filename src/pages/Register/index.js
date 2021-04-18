@@ -1,3 +1,4 @@
+import React from 'react';
 import { Container } from 'react-bootstrap';
 import { FormRegister } from '../../components';
 import './register.scss';
@@ -7,7 +8,7 @@ const Register = () => {
     <div className="bg-dark container-register">
       <Container fluid>
         <div className="form-register">
-          <h1 className="text-white mb-5">Register</h1>
+          <h1 className="text-white mb-4">Register</h1>
           <FormRegister classLabel="text-white" />
         </div>
       </Container>
