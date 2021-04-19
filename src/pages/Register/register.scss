@@ -1,12 +1,35 @@
-@media screen and (min-width: 700px) {
-  body {
+.main-page {
+  .ilustrate {
+    position: relative;
+    width: 50%;
     height: 100vh;
-    div {
-      height: 100%;
-      .form-register {
-        padding: 5% 0 5%;
-        margin: auto;
-        width: 50%;
+  }
+  .form-register {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main-page {
+    .ilustrate {
+      position: absolute;
+      width: 100vh;
+      height: 100vh;
+      z-index: -1;
+    }
+    .form-register {
+      height: 100vh;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
+      .text-dark {
+        color: white !important;
       }
     }
   }

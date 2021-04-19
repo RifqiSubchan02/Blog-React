@@ -1,21 +1,29 @@
-body {
-  div {
-    .cover {
-      position: absolute;
-      width: 100vw;
-      max-height: 100vh;
-      z-index: -1;
+.main-page {
+  display: flex;
+  .bg-img {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding: 5%;
+    width: 60%;
+    margin: auto;
+    h1 {
+      padding-bottom: 5vh;
     }
-    .container {
-      padding-top: 20vh;
-      .form {
-        align-items: center;
-        margin: auto;
-        width: 50%;
-        h1 {
-          padding-bottom: 5vh;
-        }
-      }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main-page {
+    .form {
+      width: 80%;
     }
   }
 }

@@ -3,8 +3,8 @@ import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-boots
 const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
-      <Navbar.Brand href="#home">Menit.com</Navbar.Brand>
-      <Form inline className="ml-md-5">
+      <Navbar.Brand href="#home" className="ml-3">Menit.com</Navbar.Brand>
+      <Form inline className="ml-3 mr-3">
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
         <Button variant="outline-light">Search</Button>
       </Form>
