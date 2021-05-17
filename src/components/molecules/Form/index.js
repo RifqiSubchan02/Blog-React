@@ -1,5 +1,5 @@
 import FormLogin from './FormLogin';
 import FormRegister from './FormRegister';
-import FormCreateBlog from './FormCreateBlog';
+import FormCreatePost from './FormCreatePost';
 
-export { FormLogin, FormRegister, FormCreateBlog };
+export { FormLogin, FormRegister, FormCreatePost };

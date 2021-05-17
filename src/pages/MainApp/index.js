@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { CreateBlog, DetailBlog, Home } from "..";
+import { CreatePost, DetailPost, Home, MyPosts } from "..";
 import { Footer, Header } from "../../components";
 
 const MainApp = () => {
@@ -9,11 +9,14 @@ const MainApp = () => {
       <Header />
       <Router>
         <Switch>
-          <Route path="/create-blog">
-            <CreateBlog />
+          <Route path="/my-post/create-post">
+            <CreatePost />
           </Route>
-          <Route path="/detail-blog">
-            <DetailBlog />
+          <Route path="/my-posts">
+            <MyPosts />
+          </Route>
+          <Route path="/detail-post/:id">
+            <DetailPost />
           </Route>
           <Route path="/">
             <Home />

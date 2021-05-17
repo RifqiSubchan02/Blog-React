@@ -1,12 +1,15 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import Axios from 'axios';
+import { useHistory } from 'react-router';
 
 const FormRegister = (props) => {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [image, setImage] = React.useState('');
+
+  const history = useHistory();
 
   const onSubmit = () => {
     const data = new FormData();
@@ -15,13 +18,19 @@ const FormRegister = (props) => {
     data.append('password', password);
     data.append('image', image);
 
-    Axios.post('http://localhost:4000/v1/user', data, {
+    Axios.post('https://blog-api-deploy.herokuapp.com/v1/user/register', data, {
       headers: {
         'content-type': 'multipart/form-data'
       }
     })
-      .then(result => console.log('result : ', result))
-      .catch(error => console.log(error));
+      .then(result => {
+        alert('Register Success');
+        setTimeout(() => history.push('/login'), 3000);
+      })
+      .catch(error => {
+        alert('Register Failed');
+        console.log(error);
+      });
   }
 
   return (
@@ -46,7 +55,7 @@ const FormRegister = (props) => {
       </Form.Group>
 
       <Button variant="primary" size={props.sizeButton} className="mt-md-4 mb-md-3" onClick={onSubmit} block>Sign Up</Button>
-      <Button variant="danger" type="reset" size={props.sizeButton} block>Cancel</Button>
+      <Button variant="danger" type="reset" href="/login" size={props.sizeButton} block>Cancel</Button>
     </Form>
   )
 }

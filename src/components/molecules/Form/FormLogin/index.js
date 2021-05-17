@@ -1,27 +1,29 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import Axios from 'axios';
 
 const FormLogin = (props) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const history = useHistory();
 
   const onSubmit = () => {
     const data = new FormData();
     data.append('email', email);
     data.append('password', password);
 
-    Axios.post('http://localhost:4000/v1/user/login', data, {
+    Axios.post('https://blog-api-deploy.herokuapp.com/v1/user/login', data, {
       headers: {
         'content-type': 'multipart/form-data'
       }
     })
       .then(result => {
-        localStorage.setItem('user', JSON.stringify(result.data.data));
+        localStorage.setItem('access_token', result.data.access_token);
+        history.push('/');
       })
       .catch(error => {
-        alert('Invalid username or password')
-        console.log(error)
+        alert('Invalid username or password');
       });
   }
   return (
