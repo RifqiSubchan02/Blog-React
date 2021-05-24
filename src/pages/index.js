@@ -6,5 +6,6 @@ import CreatePost from './CreatePost';
 import DetailPost from './DetailPost';
 import Profile from './Profile';
 import MyPosts from './MyPosts';
+import EditPost from './EditPost';
 
-export { Login, Register, MainApp, Home, CreatePost, DetailPost, Profile, MyPosts };
+export { Login, Register, MainApp, Home, CreatePost, DetailPost, Profile, MyPosts, EditPost };

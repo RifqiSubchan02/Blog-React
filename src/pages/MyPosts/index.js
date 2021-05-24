@@ -5,18 +5,17 @@ import { CardItems } from "../../components";
 
 const MyPosts = () => {
   const [dataPosts, setDataPosts] = React.useState([]);
-  const accessToken = localStorage.getItem('access_token');
   React.useEffect(() => {
     Axios.get('https://blog-api-deploy.herokuapp.com/v1/article/my-posts', {
       headers: {
-        'Authorization': accessToken,
+        'Authorization': localStorage.getItem('access_token'),
       }
     })
       .then(result => {
         setDataPosts(result.data.data);
       })
       .catch(error => alert('Invalid token, please sign in again'))
-  })
+  }, [])
   return (
     <Container className="mt-5">
       <Row>
@@ -32,7 +31,7 @@ const MyPosts = () => {
       <CardDeck className="row-cols-sm-1 row-cols-md-2 mt-4">
         {dataPosts.map(posts => {
           const body = posts.body;
-          return <CardItems key={posts.id} title={posts.title} category={posts.Category.name} author={posts.User.name} image={posts.imageUrl} date={posts.createdAt} body={body.substring(0, 150)} btnClassRead="d-none" btnClassEdit="mr-2" />
+          return <CardItems key={posts.id.toString()} id={posts.id} title={posts.title} category={posts.Category.name} author={posts.User.name} image={posts.imageUrl} date={posts.createdAt} body={body.substring(0, 150)} btnClassRead="d-none" btnClassEdit="mr-2" />
         })}
       </CardDeck>
     </Container >

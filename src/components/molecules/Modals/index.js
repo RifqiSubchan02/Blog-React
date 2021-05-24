@@ -1,10 +1,22 @@
 import { Fragment, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import Axios from 'axios';
+
 const Modals = (props) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const deletePost = () => {
+    Axios.delete(`https://blog-api-deploy.herokuapp.com/v1/article/my-posts/delete/${props.id}`, {
+      headers: {
+        'Authorization': localStorage.getItem('access_token')
+      }
+    })
+      .then(result => alert(result.data.message))
+      .catch(error => alert(error))
+  }
 
   return (
     <>
@@ -29,7 +41,7 @@ const Modals = (props) => {
             <Button variant="secondary" onClick={handleClose}>
               Close
           </Button>
-            <Button variant="primary">Understood</Button>
+            <Button variant="primary" onClick={deletePost}>Understood</Button>
           </Modal.Footer>
         </Modal>
       </Fragment>

@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React from 'react';
 import { Container, CardDeck, Row } from "react-bootstrap";
-import { CardItems, Paginations } from "../../components";
+import { CardItems } from "../../components";
 import './home.scss';
 
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
         </CardDeck>
       </Row>
       <Row className="d-flex justify-content-center align-middle">
-        <Paginations />
+        {/* <Paginations /> */}
       </Row>
     </Container>
   )

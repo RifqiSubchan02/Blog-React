@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import Axios from 'axios';
 
 const FormCreatePost = (props) => {
   const [dataCategories, setDataCategories] = useState([]);
 
-  Axios.get('https://blog-api-deploy.herokuapp.com/v1/category')
-    .then(result => {
-      setDataCategories(result.data.data);
-    })
-    .catch(error => console.log(error));
+  useEffect(() => {
+    Axios.get('https://blog-api-deploy.herokuapp.com/v1/category')
+      .then(result => {
+        setDataCategories(result.data.data);
+      })
+      .catch(error => console.log(error));
+  }, [])
 
   const a = document.getElementById('exampleForm.ControlSelect1');
   const b = document.getElementById('exampleForm.ControlSelect2');

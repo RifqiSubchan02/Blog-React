@@ -1,4 +1,6 @@
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Logo } from '../../../assets';
+import './header.scss';
 
 const Header = () => {
   function logout() {
@@ -8,11 +10,12 @@ const Header = () => {
   if (!localStorage.getItem('access_token')) {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="navbar-expand-lg">
-        <Navbar.Brand href="/" className="ml-3">Menit{"{Dot}"}Com</Navbar.Brand>
-        <Form inline className="ml-3 mr-3 d-none d-md-flex">
+
+        <Navbar.Brand href="/" className="ml-3"><Image src={Logo} className="logo mr-2" fluid></Image>Menit{"{Dot}"}Com</Navbar.Brand>
+        {/* <Form inline className="ml-3 mr-3 d-none d-md-flex">
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-light">Search</Button>
-        </Form>
+        </Form> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" className="ml-3" />
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Nav className="ml-md-auto text-center mr-lg-3">
@@ -27,11 +30,11 @@ const Header = () => {
   } else {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="navbar-expand-lg">
-        <Navbar.Brand href="/" className="ml-3">Menit{"{Dot}"}Com</Navbar.Brand>
-        <Form inline className="ml-3 mr-3 d-none d-md-flex">
+        <Navbar.Brand href="/" className="ml-3"><Image src={Logo} className="logo mr-2" fluid></Image>Menit{"{Dot}"}Com</Navbar.Brand>
+        {/* <Form inline className="ml-3 mr-3 d-none d-md-flex">
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-light">Search</Button>
-        </Form>
+        </Form> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" className="ml-3" />
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Nav className="ml-md-auto text-sm-center mr-lg-3" >
@@ -39,7 +42,7 @@ const Header = () => {
             <Nav.Link href="#pricing">Education</Nav.Link>
             <Nav.Link href="#sports" className="mr-lg-4">Sports</Nav.Link> */}
             <NavDropdown title="Account" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Item href="/my-posts">My Posts</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/login" onClick={logout} >Logout</NavDropdown.Item>
